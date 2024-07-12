@@ -2,7 +2,6 @@
 import { useState } from "react";
 import { EmailClient, KnownEmailSendStatus } from "@azure/communication-email";
 import { AzureKeyCredential } from "@azure/core-auth";
-
 const Home = () => {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState("");
@@ -70,7 +69,7 @@ const Home = () => {
       } else {
         throw new Error(result?.error?.message || "Unknown error occurred.");
       }
-    } catch (err: Error) {
+    } catch (err: any) {
       setError(err.message || "Failed to send email.");
     } finally {
       setLoading(false);
